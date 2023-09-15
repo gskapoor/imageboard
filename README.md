@@ -1,4 +1,12 @@
 # goofychan
+A simple imageboard.
+
+## Resources
+[This](https://www.youtube.com/watch?v=cpzowDDJj24&t=641s) youtube video inspired the use of this stack.
+
+
+
+## Installation
 
 To install dependencies:
 
