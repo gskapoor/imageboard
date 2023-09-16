@@ -3,6 +3,8 @@ import { html } from "@elysiajs/html";
 
 import * as elements from "typed-html";
 
+// TODO: Split into multiple files
+
 const app = new Elysia()
   .use(html())
   .get("/", ({html}) => 
@@ -87,6 +89,8 @@ function PostsList({posts}: {posts: Post[]}){
     </div> 
   );
 }
+
+// TODO Clear form after submit
 
 function PostForm(){
   return (
