@@ -1,7 +1,10 @@
 {
   "name": "goofychan",
-  "module": "index.ts",
+  "module": "./src/index.tsx",
   "type": "module",
+  "scripts": {
+    "start": "bun run ./src/index.tsx" 
+  },
   "devDependencies": {
     "bun-types": "latest",
     "typed-html": "^3.0.1"
@@ -11,6 +14,7 @@
   },
   "dependencies": {
     "@elysiajs/html": "^0.6.5",
+    "@types/jest": "^29.5.4",
     "elysia": "^0.6.23"
   }
 }
