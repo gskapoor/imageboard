@@ -10,7 +10,8 @@ const app = new Elysia()
   .get("/", ({html}) => 
     html(
       <BaseHtml>
-        <body 
+        <div 
+        id="postList"
         class="flex w-full h-screen justify-center items-center"
         hx-get="/posts"
         hx-trigger="load"
@@ -55,8 +56,12 @@ const BaseHtml = ({children}: elements.Children) => `
   <script src="https://unpkg.com/htmx.org@1.9.3"></script>
   <script src="https://cdn.tailwindcss.com"></script>
 </head>
-
-${children}
+<body class="bg-gray-100">
+  <header class="bg-green-500 p-4 text-white">
+    <h1 class="text-2xl font-semibold">Basic Imageboard</h1>
+  </header>
+  ${children}
+</body>
 `;
 
 type Post = {
@@ -72,21 +77,22 @@ const db: Post[] = [
 
 function PostItem({id, content} : Post){
   return(
-    <div class="flex flex-row space-x-3">
-      <p>{id}</p>
-      <p>{content}</p>
+    <div class="border-t-2 p-4 ">
+      <p>{id}: {content}</p>
     </div>
   );
 }
 
 function PostsList({posts}: {posts: Post[]}){
+  const reversedPosts = [...posts].reverse();
+
   return(
-    <div> 
-      {posts.map((post) => (
-        <PostItem {...post}/>
-      ))}
+    <main class="container mx-auto py-4">
       <PostForm />
-    </div> 
+      {reversedPosts.map((post) => (
+        <PostItem {...post}/> // NOTE: this essentially takes the "post" object and splits it into multiple items
+      ))}
+    </main>
   );
 }
 
@@ -97,9 +103,13 @@ function PostForm(){
     <form
       class="flex flex-row space-x-3"
       hx-post="posts"
-      hx-swap="beforebegin"
+      hx-swap="afterend"
+      hx-trigger="submit"
     >
-      <input type="text" name="content" class="border border-black" />
+      <tr>
+      <td><input type="text" name="content" class="border border-black" /></td>
+      <td><button type="submit">Submit</button></td>
+      </tr>
     </form>
 
   );
