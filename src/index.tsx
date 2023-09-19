@@ -1,6 +1,5 @@
 import { Elysia, t } from "elysia";
 import { html } from "@elysiajs/html";
-
 import * as elements from "typed-html";
 
 // TODO: Split into multiple files
