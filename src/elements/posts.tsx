@@ -5,6 +5,7 @@ import * as elements from "typed-html";
 // file imports
 import { postsTable } from "../db/db";
 import { Post } from "../global/types";
+import { Form  as PostForm} from "./form";
 
 const db = postsTable;
 
@@ -75,25 +76,6 @@ function PostsList({posts}: {posts: Post[]}){
 }
 
 
-/**
- * 
- * @returns A default PostForm object
- */
 
-function PostForm(){
-  return (
-    <form
-      class="flex flex-row space-x-3"
-      hx-post="posts"
-      hx-swap="afterend"
-      hx-trigger="submit"
-    >
-      <tr>
-      <td><input type="text" name="content" class="border border-black" /></td>
-      <td><button type="submit">Submit</button></td>
-      </tr>
-    </form>
 
-  );
 
-}
