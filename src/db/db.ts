@@ -1,5 +1,5 @@
 // TODO: USE AN ACTUAL SQLite Database
-// (Bohan would be disappointed)
+// (Bohan would be very disappointed)
 import { Post } from "../global/types";
 
 
