@@ -1,11 +1,14 @@
 # Version Log
 
 ## 0.0.1-initial
-# Changes
+
+### Changes
+
 - Added basic messageboard functionality. 
 - Made some basic changes to UI design
 
-# Future Plans
+### Future Plans
+
 - Add image support
 - Fix format (make it more similar to "-chan" style imageboards)
 - Multiline posts
